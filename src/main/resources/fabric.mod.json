@@ -1,0 +1,54 @@
+{
+	"schemaVersion": 1,
+	"id": "energycrystal",
+	"version": "${version}",
+	"name": "EnergyCrystal",
+	"description": "Energy Crystal is a auxiliary mod, added a multi block structure for wireless transmission of energy and items",
+	"authors": [
+		"Seedking"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/Seedking/EnergyCrystal"
+	},
+	"license": "MIT",
+	"icon": "assets/energycrystal/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			{
+				"value": "com.github.seedking.EnergyCrystal",
+				"adapter": "kotlin"
+			}
+		],
+		"client": [
+			{
+				"value": "com.github.seedking.EnergyCrystalClient",
+				"adapter": "kotlin"
+			}
+		],
+		"fabric-datagen": [
+			{
+				"value": "com.github.seedking.EnergyCrystalDataGenerator",
+				"adapter": "kotlin"
+			}
+		]
+	},
+	"mixins": [
+		"energycrystal.mixins.json",
+		{
+			"config": "energycrystal.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.14.22",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*",
+		"fabric-language-kotlin": ">=1.9.0"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

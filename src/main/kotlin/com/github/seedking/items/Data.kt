@@ -10,5 +10,6 @@ package com.github.seedking.items
 import net.minecraft.item.Item
 
 data object Data {
-    var itemMap = mutableMapOf<Item, String>()
+    var itemMap = HashMap<Item, String>()
+    var level= arrayOf<String>("COPPER","IRON","GOLD","QUARTZ","DIAMOND","ENDER","HIGHE")
 }

@@ -7,31 +7,26 @@
 
 package com.github.seedking.level
 
-import java.awt.Color
+data class Rgb(val redValue: Int, val greenValue: Int, val blueValue: Int) {
+    val red = redValue
+    val green = greenValue
+    val blue = blueValue
+}
 
+data class Level(val levelRank: Int, val levelName: String, val levelColor: Int) {
+    val level = levelRank
+    val name = levelName
+    val color = levelColor
 
-data object level {
-    private var LEVEL = mutableMapOf<String,IntArray>(
-        Pair("NORMAL", intArrayOf(0,0x114514)),
-        Pair("COPPER",intArrayOf(1,0x114514)),
-        Pair("IRON",intArrayOf(2,0x114514)),
-        Pair("GOLD",intArrayOf(3,0x114514)),
-        Pair("QUARTZ",intArrayOf(4,0x114514)),
-        Pair("DIAMOND",intArrayOf(5,0x114514)),
-        Pair("ENDER",intArrayOf(6,0x114514)),
-        Pair("HIGHE",intArrayOf(7,0x114514)),
-    )
-
-    fun getColor(name: String,vararg rgb:Boolean): Any? {
-        if (rgb[0])
-            return LEVEL[name]?.get(1)
-        else
-            return {content:IntArray -> content[1]}
+    fun getAll(): Level {
+        return Level(level, name, color)
     }
-    fun addLevel(name: String, color: IntArray) {
-        LEVEL[name] = color
-    }
-    fun getAllLevel():Map<String,IntArray> {
-        return LEVEL
+
+    fun getColorRgb(): Rgb {
+        return Rgb(
+            color ushr 16 and 0xFF,
+            color shr 8 and 0xFF,
+            color and 0xFF
+        )
     }
 }

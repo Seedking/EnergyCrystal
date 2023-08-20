@@ -7,11 +7,6 @@
 
 package com.github.seedking.level
 
-data class Rgb(val redValue: Int, val greenValue: Int, val blueValue: Int) {
-    val red = redValue
-    val green = greenValue
-    val blue = blueValue
-}
 
 data class Level(val levelRank: Int, val levelName: String, val levelColor: Int) {
     val level = levelRank

@@ -16,7 +16,13 @@ import net.minecraft.registry.*
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 
-class EnergyCrystalGroup {
+class EnergyCrystalGroup(data: Data) {
+    private var internal_data: Data = Data()
+
+    init {
+        internal_data.itemMap = data.itemMap
+    }
+
     private val ENERGYCRYSTAL_GROUP:RegistryKey<ItemGroup> = RegistryKey.of(
         RegistryKeys.ITEM_GROUP,
         Identifier(EnergyCrystal.MOD_ID,"group.main")
@@ -29,7 +35,7 @@ class EnergyCrystalGroup {
         }
     }
 
-    //下面为外部使用 先注册再添加
+    //在EnergyCrystal中使用 先注册再添加
     fun registerGroup() {
         EnergyCrystal.LOGGER.info("注册物品组 ${ENERGYCRYSTAL_GROUP.value}")
         Registry.register(Registries.ITEM_GROUP, ENERGYCRYSTAL_GROUP, FabricItemGroup.builder()
@@ -39,7 +45,7 @@ class EnergyCrystalGroup {
     }
 
     fun addAllItemToGroup() {
-        Data.itemMap.forEach{(item, name) ->
+        internal_data.itemMap.forEach{(item, name) ->
             addItemToGroup(ENERGYCRYSTAL_GROUP, item)
         }
     }

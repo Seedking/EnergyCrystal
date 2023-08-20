@@ -7,6 +7,7 @@
 
 package com.github.seedking
 
+import com.github.seedking.items.Data
 import com.github.seedking.items.EnergyCrystalGroup
 import com.github.seedking.items.EnergyCrystalItems
 import net.fabricmc.api.ModInitializer
@@ -20,9 +21,10 @@ object EnergyCrystal : ModInitializer {
 
 	override fun onInitialize() {
 		LOGGER.info("你好 Energy Crystal !")
-		var itemController = EnergyCrystalItems()
+		val itemData:Data = Data()
+		var itemController = EnergyCrystalItems(itemData)
 		itemController.registerItem()
-		var groupController = EnergyCrystalGroup()
+		var groupController = EnergyCrystalGroup(itemData)
 		groupController.registerGroup()
 		groupController.addAllItemToGroup()
 

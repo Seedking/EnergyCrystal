@@ -9,6 +9,10 @@ package com.github.seedking.items
 
 import net.minecraft.item.Item
 
-class Data {
+class ItemMap {
     var itemMap = HashMap<Item, String>()
+
+    fun addItem(item: Item, name: String) {
+        itemMap[item] = name
+    }
 }

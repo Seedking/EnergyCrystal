@@ -16,12 +16,8 @@ import net.minecraft.registry.*
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 
-class EnergyCrystalGroup(data: Data) {
-    private var internal_data: Data = Data()
-
-    init {
-        internal_data.itemMap = data.itemMap
-    }
+class EnergyCrystalGroup(itemMap: ItemMap) {
+    private val MAP = itemMap.itemMap
 
     private val ENERGYCRYSTAL_GROUP:RegistryKey<ItemGroup> = RegistryKey.of(
         RegistryKeys.ITEM_GROUP,
@@ -45,7 +41,7 @@ class EnergyCrystalGroup(data: Data) {
     }
 
     fun addAllItemToGroup() {
-        internal_data.itemMap.forEach{(item, name) ->
+        MAP.forEach{(item, name) ->
             addItemToGroup(ENERGYCRYSTAL_GROUP, item)
         }
     }

@@ -5,7 +5,7 @@
  *
  */
 
-package com.github.seedking.level
+package com.github.seedking.util
 
 data class Rgb(val redValue: Int, val greenValue: Int, val blueValue: Int) {
     val red = redValue

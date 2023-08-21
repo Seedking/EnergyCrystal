@@ -8,8 +8,8 @@
 package com.github.seedking
 
 import com.github.seedking.items.ItemMap
-import com.github.seedking.items.EnergyCrystalGroup
-import com.github.seedking.items.EnergyCrystalItems
+import com.github.seedking.items.GroupBus
+import com.github.seedking.items.ItemBus
 import net.fabricmc.api.ModInitializer
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -22,9 +22,9 @@ object EnergyCrystal : ModInitializer {
 	override fun onInitialize() {
 		LOGGER.info("你好 Energy Crystal !")
 		val itemMap:ItemMap = ItemMap()
-		var ecItem = EnergyCrystalItems(itemMap)
+		var ecItem = ItemBus(itemMap)
 		ecItem.registerItem()
-		var ecGroup = EnergyCrystalGroup(itemMap)
+		var ecGroup = GroupBus(itemMap)
 		ecGroup.registerGroup()
 		ecGroup.addAllItemToGroup()
 

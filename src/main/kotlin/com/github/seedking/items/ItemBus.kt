@@ -13,7 +13,7 @@ import net.minecraft.registry.*
 import net.minecraft.util.Identifier
 
 
-class EnergyCrystalItems(itemMap: ItemMap) {
+class ItemBus(itemMap: ItemMap) {
     var MAP = itemMap.itemMap
     init {
 

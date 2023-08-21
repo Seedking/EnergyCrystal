@@ -16,7 +16,7 @@ import net.minecraft.registry.*
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 
-class EnergyCrystalGroup(itemMap: ItemMap) {
+class GroupBus(itemMap: ItemMap) {
     private val MAP = itemMap.itemMap
 
     private val ENERGYCRYSTAL_GROUP:RegistryKey<ItemGroup> = RegistryKey.of(
